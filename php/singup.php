@@ -2,7 +2,7 @@
 
 <div>
 
-            <form class="form-signin" action='' method="post">
+            <form class="form-signin" action="register.php" method="post">
 
               <div class="row">
                 <div class="col-md-6 mb-4">
@@ -22,8 +22,10 @@
               <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
                     <input type="text" id="form3Example2" class="form-control" placeholder="Username" name="username"/>
-                    <label class="form-label" for="form3Example2">Surname</label>
+                    <label class="form-label" for="form3Example2">Username</label>
                   </div>
+                </div>
+              </div>
 
                <!-- Email input -->
               <div data-mdb-input-init class="form-outline mb-4">
@@ -40,9 +42,10 @@
            
 
               <!-- Submit button -->
-              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" name="Submit">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" name="submit">
                 Sign up
               </button>
+              
               
               <small>Already have account? <a href="login.php">Log In</a></small>
               

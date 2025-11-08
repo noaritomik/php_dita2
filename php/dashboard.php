@@ -9,7 +9,7 @@
     
 <?php
     include_once('config.php');
-    $getUsers=$conn->prepare("SELECT * FROM user");
+    $getUsers=$conn->prepare("SELECT * FROM users");
     $getUsers->execute();
     $user=$getUsers->FetchAll();
 ?>

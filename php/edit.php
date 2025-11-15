@@ -3,7 +3,7 @@ include_once("config.php");
 
 $id=$_GET['id'];
 
-$sql="SELECT * FROM user WHERE id=:id";
+$sql="SELECT * FROM products WHERE id=:id";
 
 $prep=$conn->prepare($sql);
 
@@ -23,9 +23,10 @@ $data=$prep->fetch();
 <body>
     <form action="update.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $data['id']?>">
-        <input type="hidden" name="name" value="<?php echo $data['name']?>">
-        <input type="hidden" name="surname" value="<?php echo $data['surname']?>">
-        <input type="hidden" name="email" value="<?php echo $data['email']?>">
+        <input type="hidden" name="title" value="<?php echo $data['title']?>">
+        <input type="hidden" name="description" value="<?php echo $data['description']?>">
+        <input type="hidden" name="quantity" value="<?php echo $data['quantity']?>">
+        <input type="hidden" name="price" value="<?php echo $data['price']?>">
 
         <button type="submit" name="update">Update</button>
     </form>

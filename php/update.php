@@ -4,16 +4,18 @@ include_once("config.php");
 
 if(isset($_POST['update'])){
     $id=$_POST['id'];
-    $id=$_POST['name'];
-    $id=$_POST['surname'];
-    $id=$_POST['email'];
+    $title=$_POST['title'];
+    $description=$_POST['description'];
+    $quantity=$_POST['quantity'];
+    $price=$_POST['price'];
 
-    $sql="UPDATE user SET name=:name, surname=:surname, email=:email WHERE id=:id";
+    $sql="UPDATE products SET title=:title, description=:description, quantity=:quantity, price=:price WHERE id=:id";
     $prep=$conn->prepare($sql);
     $prep->bindParam(':id',$id);
-    $prep->bindParam(':name',$name);
-    $prep->bindParam(':surname',$surname);
-    $prep->bindParam(':email',$email);
+    $prep->bindParam(':title',$title);
+    $prep->bindParam(':description',$description);
+    $prep->bindParam(':quantity',$quantity);
+    $prep->bindParam(':price',$price);
 
     $prep->execute();
 

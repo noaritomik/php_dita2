@@ -1,20 +1,89 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flight Status Tracker</title>
+    <title>Flight Tracker CRUD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Flight Tracker</title>
 </head>
 <body>
 <div class="container">
-    <h1>✈️ Flight Status Tracker</h1>
+    <h1>✈️ Flight Tracker CRUD</h1>
 
-    <input type="text" id="flightNo" placeholder="Enter Flight Number (e.g. AI101)">
-    <button onclick="checkStatus()">Check Status</button>
+    <div class="form-section">
+        <h2>Add / Update Flight</h2>
+        <input type="text" id="flight_no" placeholder="Flight Number (e.g. FL101)">
+        <input type="text" id="airline" placeholder="Airline">
+        <input type="text" id="departure" placeholder="Departure">
+        <input type="text" id="arrival" placeholder="Arrival">
+        <select id="status">
+            <option value="On Time">On Time</option>
+            <option value="Delayed">Delayed</option>
+            <option value="Landed">Landed</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+        <button onclick="addFlight()">Add Flight</button>
+        <button onclick="updateFlight()">Update Flight</button>
+    </div>
 
-    <div id="result"></div>
+    <div class="form-section">
+        <h2>Delete Flight</h2>
+        <input type="text" id="deleteFlightNo" placeholder="Flight Number to Delete">
+        <button onclick="deleteFlight()">Delete</button>
+    </div>
+
+    <div class="form-section">
+        <h2>Check Flight Status</h2>
+        <input type="text" id="checkFlightNo" placeholder="Enter Flight Number">
+        <button onclick="checkStatus()">Check Status</button>
+        <div id="result">Flight info will appear here</div>
+    </div>
+
+    <div class="form-section">
+        <h2>All Flights</h2>
+        <button onclick="loadAllFlights()">Refresh List</button>
+        <table id="flightsTable">
+            <thead>
+                <tr>
+                    <th>Flight No</th>
+                    <th>Airline</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Status Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>✈️ Flight Status Tracker</h1>
+
+    <form onsubmit="checkStatus(); return false;">
+        <input type="text" id="flightNo" placeholder="Enter Flight Number (e.g. AI101)" required>
+        <button type="submit">Check Status</button>
+    </form>
+
+    <div id="result">Enter a flight number to see status.</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html> -->

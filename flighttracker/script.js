@@ -1,129 +1,129 @@
-window.onload = loadAllFlights;
+// window.onload = loadAllFlights;
 
-// Add Flight
-function addFlight() {
-    const flight = getFlightFormData();
-    if (!flight) return;
+// // Add Flight
+// function addFlight() {
+//     const flight = getFlightFormData();
+//     if (!flight) return;
 
-    fetch('addFlight.php', {
-        method: 'POST',
-        body: new URLSearchParams(flight)
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message || data.error);
-        loadAllFlights(); // Refresh table
-    })
-    .catch(() => alert("Server error"));
-}
+//     fetch('addFlight.php', {
+//         method: 'POST',
+//         body: new URLSearchParams(flight)
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//         alert(data.message || data.error);
+//         loadAllFlights(); // Refresh table
+//     })
+//     .catch(() => alert("Server error"));
+// }
 
-// Update Flight
-function updateFlight() {
-    const flight = getFlightFormData();
-    if (!flight) return;
+// // Update Flight
+// function updateFlight() {
+//     const flight = getFlightFormData();
+//     if (!flight) return;
 
-    fetch('updateFlight.php', {
-        method: 'POST',
-        body: new URLSearchParams(flight)
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message || data.error);
-        loadAllFlights();
-    })
-    .catch(() => alert("Server error"));
-}
+//     fetch('updateFlight.php', {
+//         method: 'POST',
+//         body: new URLSearchParams(flight)
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//         alert(data.message || data.error);
+//         loadAllFlights();
+//     })
+//     .catch(() => alert("Server error"));
+// }
 
-// Delete Flight
-function deleteFlight() {
-    const flight_no = document.getElementById('deleteFlightNo').value.trim().toUpperCase();
-    if (!flight_no) {
-        alert("Enter a flight number to delete");
-        return;
-    }
+// // Delete Flight
+// function deleteFlight() {
+//     const flight_no = document.getElementById('deleteFlightNo').value.trim().toUpperCase();
+//     if (!flight_no) {
+//         alert("Enter a flight number to delete");
+//         return;
+//     }
 
-    fetch('deleteFlight.php', {
-        method: 'POST',
-        body: new URLSearchParams({ flight_no })
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message || data.error);
-        loadAllFlights();
-    })
-    .catch(() => alert("Server error"));
-}
+//     fetch('deleteFlight.php', {
+//         method: 'POST',
+//         body: new URLSearchParams({ flight_no })
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//         alert(data.message || data.error);
+//         loadAllFlights();
+//     })
+//     .catch(() => alert("Server error"));
+// }
 
-// Check Status
-function checkStatus() {
-    const flightNo = document.getElementById("checkFlightNo").value.trim().toUpperCase();
-    const resultDiv = document.getElementById("result");
+// // Check Status
+// function checkStatus() {
+//     const flightNo = document.getElementById("checkFlightNo").value.trim().toUpperCase();
+//     const resultDiv = document.getElementById("result");
 
-    if (!flightNo) {
-        resultDiv.innerHTML = "❌ Enter a flight number";
-        return;
-    }
+//     if (!flightNo) {
+//         resultDiv.innerHTML = "❌ Enter a flight number";
+//         return;
+//     }
 
-    resultDiv.innerHTML = "⏳ Checking flight status...";
+//     resultDiv.innerHTML = "⏳ Checking flight status...";
 
-    fetch(`status.php?flight=${encodeURIComponent(flightNo)}`)
-    .then(res => res.json())
-    .then(data => {
-        if (!data.success) {
-            resultDiv.innerHTML = `❌ ${data.error}`;
-            return;
-        }
+//     fetch(`status.php?flight=${encodeURIComponent(flightNo)}`)
+//     .then(res => res.json())
+//     .then(data => {
+//         if (!data.success) {
+//             resultDiv.innerHTML = `❌ ${data.error}`;
+//             return;
+//         }
 
-        const flight = data.flight;
-        resultDiv.innerHTML = `
-            ✈️ <strong>${flight.flight_no}</strong><br>
-            Airline: ${flight.airline}<br>
-            From: ${flight.departure}<br>
-            To: ${flight.arrival}<br>
-            Status: <span class="${flight.status.toLowerCase().replace(" ", "-")}">
-                ${flight.status}
-            </span>
-        `;
-    })
-    .catch(() => resultDiv.innerHTML = "❌ Server error");
-}
+//         const flight = data.flight;
+//         resultDiv.innerHTML = `
+//             ✈️ <strong>${flight.flight_no}</strong><br>
+//             Airline: ${flight.airline}<br>
+//             From: ${flight.departure}<br>
+//             To: ${flight.arrival}<br>
+//             Status: <span class="${flight.status.toLowerCase().replace(" ", "-")}">
+//                 ${flight.status}
+//             </span>
+//         `;
+//     })
+//     .catch(() => resultDiv.innerHTML = "❌ Server error");
+// }
 
-// Load all flights into table
-function loadAllFlights() {
-    fetch('allFlights.php')
-    .then(res => res.json())
-    .then(data => {
-        const tbody = document.querySelector('#flightsTable tbody');
-        tbody.innerHTML = '';
-        data.forEach(f => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${f.flight_no}</td>
-                <td>${f.airline}</td>
-                <td>${f.departure}</td>
-                <td>${f.arrival}</td>
-                <td class="${f.status.toLowerCase().replace(" ", "-")}">${f.status}</td>
-            `;
-            tbody.appendChild(row);
-        });
-    })
-    .catch(() => alert("Error loading flights"));
-}
+// // Load all flights into table
+// function loadAllFlights() {
+//     fetch('allFlights.php')
+//     .then(res => res.json())
+//     .then(data => {
+//         const tbody = document.querySelector('#flightsTable tbody');
+//         tbody.innerHTML = '';
+//         data.forEach(f => {
+//             const row = document.createElement('tr');
+//             row.innerHTML = `
+//                 <td>${f.flight_no}</td>
+//                 <td>${f.airline}</td>
+//                 <td>${f.departure}</td>
+//                 <td>${f.arrival}</td>
+//                 <td class="${f.status.toLowerCase().replace(" ", "-")}">${f.status}</td>
+//             `;
+//             tbody.appendChild(row);
+//         });
+//     })
+//     .catch(() => alert("Error loading flights"));
+// }
 
-// Helper: get form data
-function getFlightFormData() {
-    const flight_no = document.getElementById('flight_no').value.trim().toUpperCase();
-    const airline = document.getElementById('airline').value.trim();
-    const departure = document.getElementById('departure').value.trim();
-    const arrival = document.getElementById('arrival').value.trim();
-    const status = document.getElementById('status').value;
-}
-    if (!flight_no || !airline || !departure || !arrival) {
-        alert("All fields are required");
-        return null;
-    }
+// // Helper: get form data
+// function getFlightFormData() {
+//     const flight_no = document.getElementById('flight_no').value.trim().toUpperCase();
+//     const airline = document.getElementById('airline').value.trim();
+//     const departure = document.getElementById('departure').value.trim();
+//     const arrival = document.getElementById('arrival').value.trim();
+//     const status = document.getElementById('status').value;
+// }
+//     if (!flight_no || !airline || !departure || !arrival) {
+//         alert("All fields are required");
+//         return null;
+//     }
 
-    return { flight_no, airline, departure, arrival, status };
+//     return { flight_no, airline, departure, arrival, status };
 // const flights = {};
 
 
@@ -187,3 +187,84 @@ function getFlightFormData() {
 //             resultDiv.innerHTML = " Server error. Please try again.";
 //         });
 // }
+
+
+function addFlight() {
+    const data = {
+        flight_no: document.getElementById('flight_no').value,
+        airline: document.getElementById('airline').value,
+        departure: document.getElementById('departure').value,
+        arrival: document.getElementById('arrival').value,
+        status: document.getElementById('status').value
+    };
+
+    fetch('addFlights.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        alert(res.message);
+        clearInputs();
+        loadAllFlights();
+    });
+}
+
+function updateFlight() {
+    addFlight(); // AddFlight.php handles both add and update
+}
+
+function deleteFlight() {
+    const flight_no = document.getElementById('deleteFlightNo').value;
+    fetch('deleteFlight.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ flight_no })
+    })
+    .then(res => res.json())
+    .then(res => {
+        alert(res.message);
+        loadAllFlights();
+    });
+}
+
+function checkStatus() {
+    const flight_no = document.getElementById('checkFlightNo').value;
+    fetch(`status.php?flight_no=${flight_no}`)
+    .then(res => res.json())
+    .then(flight => {
+        const resultDiv = document.getElementById('result');
+        if (flight) {
+            resultDiv.innerText = `Flight ${flight.flight_no} (${flight.airline}) is ${flight.status}`;
+        } else {
+            resultDiv.innerText = "Flight not found";
+        }
+    });
+}
+
+function loadAllFlights() {
+    fetch('status.php')
+    .then(res => res.json())
+    .then(flights => {
+        const tbody = document.querySelector('#flightsTable tbody');
+        tbody.innerHTML = '';
+        flights.forEach(f => {
+            const row = `<tr>
+                <td>${f.flight_no}</td>
+                <td>${f.airline}</td>
+                <td>${f.departure}</td>
+                <td>${f.arrival}</td>
+                <td>${f.status}</td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+    });
+}
+
+function clearInputs() {
+    document.getElementById('flight_no').value = '';
+    document.getElementById('airline').value = '';
+    document.getElementById('departure').value = '';
+    document.getElementById('arrival').value = '';
+}

@@ -10,8 +10,6 @@ if (!$flight_no) {
 }
 
 $stmt = $conn->prepare("DELETE FROM flights WHERE flight_no=?");
-if (!$stmt) { echo json_encode(["error" => $conn->error]); exit; }
-
 $stmt->bind_param("s", $flight_no);
 $stmt->execute();
 
@@ -20,5 +18,4 @@ if ($stmt->affected_rows > 0) {
 } else {
     echo json_encode(["error" => "Flight not found"]);
 }
-exit;
 ?>

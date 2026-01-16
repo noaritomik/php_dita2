@@ -12,12 +12,11 @@ const cities = [
 
 const statuses = ["On Time", "Delayed", "Landed", "Cancelled"];
 
-// --- Run on page load ---
 window.onload = async () => {
     try {
         const flights = await fetchAllFlights();
         if (flights.length === 0) {
-            await generateRandomFlights(); // Only generate if DB is empty
+            await generateRandomFlights();
         }
         loadAllFlights();
     } catch {
@@ -25,7 +24,6 @@ window.onload = async () => {
     }
 };
 
-// --- Fetch all flights from allFlights.php ---
 async function fetchAllFlights() {
     const res = await fetch('allFlights.php');
     const data = await res.json();
@@ -33,7 +31,6 @@ async function fetchAllFlights() {
     return data;
 }
 
-// --- Generate 100 random flights ---
 async function generateRandomFlights() {
     for (let i = 1; i <= 100; i++) {
         const flightNo = "FL" + (100 + i);
@@ -53,7 +50,6 @@ async function generateRandomFlights() {
     }
 }
 
-// --- Get flight data from form ---
 function getFlightFormData() {
     const flight_no = document.getElementById('flight_no').value.trim().toUpperCase();
     const airline = document.getElementById('airline').value.trim();
@@ -69,7 +65,6 @@ function getFlightFormData() {
     return { flight_no, airline, departure, arrival, status };
 }
 
-// --- Add or update flight ---
 function addFlight() {
     const flight = getFlightFormData();
     if (!flight) return;
@@ -88,7 +83,6 @@ function addFlight() {
     .catch(() => alert("Server error"));
 }
 
-// --- Delete flight ---
 function deleteFlight() {
     const flight_no = document.getElementById('deleteFlightNo').value.trim().toUpperCase();
     if (!flight_no) { alert("Enter a flight number to delete"); return; }
@@ -106,7 +100,6 @@ function deleteFlight() {
     .catch(() => alert("Server error"));
 }
 
-// --- Check flight status ---
 function checkStatus() {
     const flightNo = document.getElementById("checkFlightNo").value.trim().toUpperCase();
     const resultDiv = document.getElementById("result");
@@ -136,7 +129,6 @@ function checkStatus() {
     .catch(() => resultDiv.innerHTML = "❌ Server error");
 }
 
-// --- Load all flights into table ---
 function loadAllFlights() {
     fetch('allFlights.php')
     .then(res => res.json())
@@ -159,7 +151,6 @@ function loadAllFlights() {
     .catch(() => alert("Error loading flights"));
 }
 
-// --- Clear add/update form ---
 function clearForm() {
     document.getElementById('flight_no').value = '';
     document.getElementById('airline').value = '';

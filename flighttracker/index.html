@@ -6,7 +6,7 @@
     <title>Flight Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -24,8 +24,7 @@
             <option value="Landed">Landed</option>
             <option value="Cancelled">Cancelled</option>
         </select>
-        <button onclick="addFlight()">Add Flight</button>
-        <button onclick="updateFlight()">Update Flight</button>
+        <button onclick="addFlight()">Add / Update Flight</button>
     </div>
 
     <div class="form-section">
@@ -58,33 +57,5 @@
         </table>
     </div>
 </div>
-
-<script src="script.js"></script>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flight Status Tracker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="container">
-    <h1>✈️ Flight Status Tracker</h1>
-
-    <form onsubmit="checkStatus(); return false;">
-        <input type="text" id="flightNo" placeholder="Enter Flight Number (e.g. AI101)" required>
-        <button type="submit">Check Status</button>
-    </form>
-
-    <div id="result">Enter a flight number to see status.</div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html> -->

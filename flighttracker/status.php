@@ -1,51 +1,29 @@
-<!-- <?php
-header('Content-Type: application/json');
-require 'db.php';
-
-$flight = strtoupper(trim($_GET['flight'] ?? ''));
-
-if ($flight === '') {
-    echo json_encode([
-        "success" => false,
-        "error" => "Flight number is required"
-    ]);
-    exit;
-}
-
-$stmt = $conn->prepare("SELECT * FROM flights WHERE flight_no = ?");
-$stmt->bind_param("s", $flight);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $data = $result->fetch_assoc();
-    echo json_encode([
-        "success" => true,
-        "flight" => $data
-    ]);
-} else {
-    echo json_encode([
-        "success" => false,
-        "error" => "Flight not found"
-    ]);
-} -->
-
 <?php
+header('Content-Type: application/json');
 include 'db.php';
 
-if (isset($_GET['flight_no'])) {
-    $flight_no = $_GET['flight_no'];
-    $stmt = $conn->prepare("SELECT * FROM flights WHERE flight_no=?");
+if (isset($_GET['flight_no']) && !empty(trim($_GET['flight_no']))) {
+    $flight_no = strtoupper(trim($_GET['flight_no']));
+    
+    $stmt = $conn->prepare("SELECT * FROM flights WHERE flight_no = ?");
     $stmt->bind_param("s", $flight_no);
     $stmt->execute();
     $result = $stmt->get_result();
-    echo json_encode($result->fetch_assoc());
-} else {
-    $result = $conn->query("SELECT * FROM flights");
-    $flights = [];
-    while ($row = $result->fetch_assoc()) {
-        $flights[] = $row;
+    
+    if ($result->num_rows > 0) {
+        $flight = $result->fetch_assoc();
+        echo json_encode($flight);
+    } else {
+        echo json_encode(["error" => "Flight not found"]);
     }
-    echo json_encode($flights);
+    exit;
 }
+
+// If no flight number is provided, return all flights
+$result = $conn->query("SELECT * FROM flights ORDER BY flight_no ASC");
+$flights = [];
+while ($row = $result->fetch_assoc()) {
+    $flights[] = $row;
+}
+echo json_encode($flights);
 ?>

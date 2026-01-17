@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #eef2f3, #ffffff);
+  color: #333;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+header p {
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* Layout */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.search-card,
+.notify-card {
+  background: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Search */
+.search-box,
+.notify-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #1e3c72;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #16325c;
+}
+
+/* Loading */
+.loading {
+  margin-top: 20px;
+  color: #777;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Result Card */
+#result {
+  margin-top: 25px;
+}
+
+.flight-card {
+  border-radius: 15px;
+  padding: 25px;
+  background: #f9fafb;
+  animation: fadeIn 0.4s ease;
+}
+
+.flight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.label {
+  font-size: 13px;
+  color: #777;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.status {
+  padding: 8px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  color: white;
+  font-size: 14px;
+}
+
+.On\ Time { background: #2ecc71; }
+.Delayed { background: #e74c3c; }
+.Boarding { background: #f39c12; }
+.Departed { background: #3498db; }
+.Arrived { background: #8e44ad; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #1c92d2, #f2fcfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD STYLE */
+.search-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.search-card h2 {
+    margin-bottom: 20px;
+    color: #1c92d2;
+}
+
+.search-card p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.search-card a {
+    color: #1c92d2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.search-card a:hover {
+    text-decoration: underline;
+}
+
+/* INPUT FIELDS */
+.search-card input[type="text"],
+.search-card input[type="email"],
+.search-card input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-card input:focus {
+    border-color: #1c92d2;
+}
+
+/* BUTTON */
+.search-card button {
+    width: 100%;
+    padding: 12px;
+    background: #1c92d2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.search-card button:hover {
+    background: #0076b3;
+}
+
+/* ERROR MESSAGE */
+p.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .search-box,
+  .notify-box {
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,5 @@
 <?php
-include("..config.php");
+include("config.php");
 
 $email = $_POST['email'];
 $flight = $_POST['flight'];

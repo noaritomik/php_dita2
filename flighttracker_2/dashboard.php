@@ -24,6 +24,24 @@ if (!isset($_SESSION["user_id"])) {
 <main>
     <?php include("tracker.php"); ?>
 
+    <!-- Track Flight Section -->
+<section class="search-card">
+    <h2>Track Your Flight</h2>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="flight" placeholder="Flight Number (AA101)">
+        <button onclick="searchFlight()">Search</button>
+    </div>
+
+    <!-- Loading indicator -->
+    <div id="loading" class="loading hidden">Searching flight…</div>
+
+    <!-- Search results -->
+    <div id="result"></div>
+</section>
+
+
     <!-- Manage Flights Section -->
     <section class="search-card">
         <h2>Manage Flights</h2>
@@ -49,7 +67,7 @@ if (!isset($_SESSION["user_id"])) {
 
         <!-- Flights List -->
         <h3>All Flights</h3>
-        <div id="flightList"></div>
+        <div id="flightList" style="overflow-x:auto;"></div>
     </section>
 </main>
 

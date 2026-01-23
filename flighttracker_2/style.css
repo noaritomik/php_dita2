@@ -1,3 +1,4 @@
+/* ================= GENERAL RESET ================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,12 +6,23 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+/* Body & layout */
 body {
   background: linear-gradient(to right, #eef2f3, #ffffff);
   color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header */
+main {
+  flex: 1; /* grow to fill space so footer stays at bottom */
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* ================= HEADER ================= */
 header {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
@@ -28,13 +40,7 @@ header p {
   opacity: 0.9;
 }
 
-/* Layout */
-main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
+/* ================= CARDS ================= */
 .search-card,
 .notify-card {
   background: white;
@@ -44,38 +50,47 @@ main {
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* Search */
-.search-box,
-.notify-box {
+/* ================= SEARCH / TRACKER ================= */
+.search-card .search-box,
+.notify-card .notify-box {
   display: flex;
   gap: 10px;
   margin-top: 15px;
 }
 
-input {
-  flex: 1;
-  padding: 14px;
-  border-radius: 10px;
+.search-card .search-box input,
+.notify-card input {
+  flex: 1; /* Full width */
+  padding: 12px 15px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
+  outline: none;
 }
 
-button {
-  padding: 14px 22px;
+.search-card .search-box input:focus,
+.notify-card input:focus {
+  border-color: #1c92d2;
+}
+
+.search-card .search-box button,
+.notify-card button {
+  padding: 12px 20px;
   border: none;
-  border-radius: 10px;
-  background: #1e3c72;
+  border-radius: 8px;
+  background: #1c92d2;
   color: white;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-button:hover {
-  background: #16325c;
+.search-card .search-box button:hover,
+.notify-card button:hover {
+  background: #0076b3;
 }
 
-/* Loading */
+/* ================= LOADING ================= */
 .loading {
   margin-top: 20px;
   color: #777;
@@ -86,7 +101,7 @@ button:hover {
   display: none;
 }
 
-/* Result Card */
+/* ================= RESULTS CARD ================= */
 #result {
   margin-top: 25px;
 }
@@ -128,112 +143,80 @@ button:hover {
 .Departed { background: #3498db; }
 .Arrived { background: #8e44ad; }
 
-/* Footer */
+/* ================= MANAGE FLIGHTS TABLE ================= */
+.search-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  table-layout: fixed;
+}
+
+.search-card table th,
+.search-card table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.search-card table th {
+  background-color: #1c92d2;
+  color: white;
+}
+
+.search-card table input,
+.search-card table select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* ================= BUTTONS IN TABLE ================= */
+.search-card table button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  margin-right: 4px;
+}
+
+.search-card table button:hover {
+  opacity: 0.85;
+}
+
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
   padding: 20px;
   color: #777;
+  background: #f1f1f1;
 }
 
-/* GENERAL RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background: linear-gradient(to right, #1c92d2, #f2fcfe);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* CARD STYLE */
-.search-card {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-    width: 350px;
-    text-align: center;
-}
-
-.search-card h2 {
-    margin-bottom: 20px;
-    color: #1c92d2;
-}
-
-.search-card p {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #555;
-}
-
-.search-card a {
-    color: #1c92d2;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.search-card a:hover {
-    text-decoration: underline;
-}
-
-/* INPUT FIELDS */
-.search-card input[type="text"],
-.search-card input[type="email"],
-.search-card input[type="password"] {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
-}
-
-.search-card input:focus {
-    border-color: #1c92d2;
-}
-
-/* BUTTON */
-.search-card button {
-    width: 100%;
-    padding: 12px;
-    background: #1c92d2;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
-}
-
-.search-card button:hover {
-    background: #0076b3;
-}
-
-/* ERROR MESSAGE */
-p.error {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-
+/* ================= FADE IN ================= */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
   .search-box,
-  .notify-box {
+  .notify-box,
+  .search-card form {
     flex-direction: column;
+  }
+
+  .search-card table,
+  .search-card table th,
+  .search-card table td {
+    font-size: 12px;
+  }
+
+  .search-card table input,
+  .search-card table select {
+    font-size: 12px;
   }
 }

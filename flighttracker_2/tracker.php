@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include("config.php");
 
 if (!isset($_SESSION["user_id"])) {
@@ -23,4 +23,4 @@ if (!isset($_SESSION["user_id"])) {
         <input type="email" id="email" placeholder="Enter your email">
         <button onclick="notify()">Notify Me</button>
     </div>
-</section>
+</section> -->

@@ -16,31 +16,26 @@ if (!isset($_SESSION["user_id"])) {
 <body>
 
 <header>
-    <div class="logo">✈ SkyTrack</div>
-    <p>Welcome, <?= htmlspecialchars($_SESSION["user_name"]) ?></p>
-    <a href="logout.php" class="logout-btn">Logout</a>
+    <div class="header-content">
+        <div class="logo">✈ SkyTrack</div>
+        <p>Welcome, <?= htmlspecialchars($_SESSION["user_name"]) ?></p>
+        <a href="logout.php" class="logout-btn">Logout</a>
+    </div>
 </header>
 
 <main>
-    <?php include("tracker.php"); ?>
-
     <!-- Track Flight Section -->
-<section class="search-card">
-    <h2>Track Your Flight</h2>
+    <section class="search-card">
+        <h2>Track Your Flight</h2>
 
-    <!-- Search Box -->
-    <div class="search-box">
-        <input type="text" id="flight" placeholder="Flight Number (AA101)">
-        <button onclick="searchFlight()">Search</button>
-    </div>
+        <div class="search-box">
+            <input type="text" id="flight" placeholder="Flight Number (AA101)">
+            <button onclick="searchFlight()">Search</button>
+        </div>
 
-    <!-- Loading indicator -->
-    <div id="loading" class="loading hidden">Searching flight…</div>
-
-    <!-- Search results -->
-    <div id="result"></div>
-</section>
-
+        <div id="loading" class="loading hidden">Searching flight…</div>
+        <div id="result"></div>
+    </section>
 
     <!-- Manage Flights Section -->
     <section class="search-card">
@@ -72,7 +67,7 @@ if (!isset($_SESSION["user_id"])) {
 </main>
 
 <footer>
-    © 2026 SkyTrack • Flight Tracking System
+    <div class="footer-content">© 2026 SkyTrack • Flight Tracking System</div>
 </footer>
 
 <script src="script.js"></script>
@@ -94,11 +89,6 @@ function loadFlights() {
         }
 
         const table = document.createElement("table");
-        table.border = 1;
-        table.width = "100%";
-        table.cellPadding = 8;
-        table.cellSpacing = 0;
-
         table.innerHTML = `
             <tr>
                 <th>ID</th>
@@ -195,7 +185,3 @@ loadFlights();
 </script>
 </body>
 </html>
-
-
-
-

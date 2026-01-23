@@ -1,6 +1,12 @@
 /* ================= GENERAL RESET ================= */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
 
+/* ================= BODY & LAYOUT ================= */
 body {
   min-height: 100vh;
   display: flex;
@@ -67,8 +73,12 @@ header a.logout-btn:hover { background: #0f1c35; }
 
 .search-card .search-box input,
 .notify-card input {
-  flex: 1; padding: 12px 15px; border-radius: 8px;
-  border: 1px solid #ccc; font-size: 16px; outline: none;
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
 }
 
 .search-card .search-box input:focus,
@@ -76,8 +86,13 @@ header a.logout-btn:hover { background: #0f1c35; }
 
 .search-card .search-box button,
 .notify-card button {
-  padding: 12px 20px; border: none; border-radius: 8px;
-  background: #1c92d2; color: white; font-size: 16px; cursor: pointer;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #1c92d2;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .search-card .search-box button:hover,
@@ -139,9 +154,22 @@ header a.logout-btn:hover { background: #0f1c35; }
 .search-card table th { background-color: #1c92d2; color: white; }
 
 .search-card table input,
-.search-card table select { width: 100%; padding: 4px 6px; font-size: 14px; }
+.search-card table select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
 
-.search-card table button { padding: 6px 10px; font-size: 13px; border-radius: 6px; cursor: pointer; border: none; margin-right: 4px; }
+.search-card table button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  margin-right: 4px;
+}
+
 .search-card table button:hover { opacity: 0.85; }
 
 /* ================= FOOTER ================= */

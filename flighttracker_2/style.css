@@ -1,10 +1,5 @@
 /* ================= GENERAL RESET ================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
 
 body {
   min-height: 100vh;
@@ -42,10 +37,7 @@ header {
   margin: 0 auto;
 }
 
-header p {
-  margin-top: 5px;
-  opacity: 0.9;
-}
+header p { margin-top: 5px; opacity: 0.9; }
 
 header a.logout-btn {
   display: inline-block;
@@ -58,13 +50,10 @@ header a.logout-btn {
   transition: 0.3s;
 }
 
-header a.logout-btn:hover {
-  background: #0f1c35;
-}
+header a.logout-btn:hover { background: #0f1c35; }
 
 /* ================= CARDS ================= */
-.search-card,
-.notify-card {
+.search-card, .notify-card {
   background: white;
   padding: 30px;
   margin-bottom: 30px;
@@ -74,50 +63,28 @@ header a.logout-btn:hover {
 
 /* ================= SEARCH BOX ================= */
 .search-card .search-box,
-.notify-card .notify-box {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
+.notify-card .notify-box { display: flex; gap: 10px; margin-top: 15px; }
 
 .search-card .search-box input,
 .notify-card input {
-  flex: 1;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  outline: none;
+  flex: 1; padding: 12px 15px; border-radius: 8px;
+  border: 1px solid #ccc; font-size: 16px; outline: none;
 }
 
 .search-card .search-box input:focus,
-.notify-card input:focus {
-  border-color: #1c92d2;
-}
+.notify-card input:focus { border-color: #1c92d2; }
 
 .search-card .search-box button,
 .notify-card button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #1c92d2;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+  padding: 12px 20px; border: none; border-radius: 8px;
+  background: #1c92d2; color: white; font-size: 16px; cursor: pointer;
 }
 
 .search-card .search-box button:hover,
-.notify-card button:hover {
-  background: #0076b3;
-}
+.notify-card button:hover { background: #0076b3; }
 
 /* ================= LOADING ================= */
-.loading {
-  margin-top: 20px;
-  color: #777;
-  font-style: italic;
-}
-
+.loading { margin-top: 20px; color: #777; font-style: italic; }
 .hidden { display: none; }
 
 /* ================= FLIGHT RESULTS ================= */
@@ -172,54 +139,21 @@ header a.logout-btn:hover {
 .search-card table th { background-color: #1c92d2; color: white; }
 
 .search-card table input,
-.search-card table select {
-  width: 100%;
-  padding: 4px 6px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
+.search-card table select { width: 100%; padding: 4px 6px; font-size: 14px; }
 
-.search-card table button {
-  padding: 6px 10px;
-  font-size: 13px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  margin-right: 4px;
-}
-
+.search-card table button { padding: 6px 10px; font-size: 13px; border-radius: 6px; cursor: pointer; border: none; margin-right: 4px; }
 .search-card table button:hover { opacity: 0.85; }
 
 /* ================= FOOTER ================= */
-footer {
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  color: #777;
-  background: #f1f1f1;
-}
-
-.footer-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
+footer { width: 100%; padding: 20px; background: #f1f1f1; color: #777; }
+.footer-content { max-width: 900px; margin: 0 auto; text-align: center; }
 
 /* ================= ANIMATION ================= */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .search-box,
-  .notify-box,
-  .search-card form { flex-direction: column; }
-
-  .search-card table,
-  .search-card table th,
-  .search-card table td { font-size: 12px; }
-
-  .search-card table input,
-  .search-card table select { font-size: 12px; }
+  .search-box, .notify-box, .search-card form { flex-direction: column; }
+  .search-card table, .search-card table th, .search-card table td { font-size: 12px; }
+  .search-card table input, .search-card table select { font-size: 12px; }
 }

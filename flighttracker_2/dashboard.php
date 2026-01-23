@@ -15,6 +15,7 @@ if (!isset($_SESSION["user_id"])) {
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <div class="header-content">
         <div class="logo">✈ SkyTrack</div>
@@ -27,12 +28,10 @@ if (!isset($_SESSION["user_id"])) {
     <!-- Track Flight Section -->
     <section class="search-card">
         <h2>Track Your Flight</h2>
-
         <div class="search-box">
             <input type="text" id="flight" placeholder="Flight Number (AA101)">
             <button onclick="searchFlight()">Search</button>
         </div>
-
         <div id="loading" class="loading hidden">Searching flight…</div>
         <div id="result"></div>
     </section>
@@ -44,10 +43,10 @@ if (!isset($_SESSION["user_id"])) {
         <!-- Add Flight Form -->
         <h3>Add New Flight</h3>
         <form id="addFlightForm">
-            <input type="text" name="flight_no" placeholder="Flight Number (AA101)" required>
+            <input type="text" name="flight_no" placeholder="Flight Number" required>
             <input type="text" name="airline" placeholder="Airline" required>
-            <input type="text" name="departure" placeholder="Departure Airport" required>
-            <input type="text" name="arrival" placeholder="Arrival Airport" required>
+            <input type="text" name="departure" placeholder="Departure" required>
+            <input type="text" name="arrival" placeholder="Arrival" required>
             <select name="status" required>
                 <option value="On Time">On Time</option>
                 <option value="Delayed">Delayed</option>
@@ -66,8 +65,11 @@ if (!isset($_SESSION["user_id"])) {
     </section>
 </main>
 
+<!-- Footer -->
 <footer>
-    <div class="footer-content">© 2026 SkyTrack • Flight Tracking System</div>
+    <div class="footer-content">
+        © 2026 SkyTrack • Flight Tracking System
+    </div>
 </footer>
 
 <script src="script.js"></script>
@@ -76,7 +78,6 @@ if (!isset($_SESSION["user_id"])) {
 // Manage Flights JS
 // ================================
 
-// Load flights
 function loadFlights() {
     fetch("admin_flights.php")
     .then(res => res.json())
@@ -134,15 +135,9 @@ function loadFlights() {
 document.getElementById("addFlightForm").addEventListener("submit", function(e){
     e.preventDefault();
     const formData = new FormData(this);
-    fetch("addflight_ajax.php", {
-        method: "POST",
-        body: formData
-    }).then(res => res.text())
-    .then(msg => {
-        alert(msg);
-        loadFlights();
-        this.reset();
-    });
+    fetch("addflight_ajax.php", { method: "POST", body: formData })
+    .then(res => res.text())
+    .then(msg => { alert(msg); loadFlights(); this.reset(); });
 });
 
 // Update Flight
@@ -163,10 +158,7 @@ function updateFlight(id) {
 
     fetch("updateflight_ajax.php", {method:"POST", body:data})
     .then(res => res.text())
-    .then(msg => {
-        alert(msg);
-        loadFlights();
-    });
+    .then(msg => { alert(msg); loadFlights(); });
 }
 
 // Delete Flight
@@ -174,14 +166,12 @@ function deleteFlight(id) {
     if (!confirm("Are you sure you want to delete this flight?")) return;
     fetch("deleteflight_ajax.php?id="+id)
     .then(res => res.text())
-    .then(msg => {
-        alert(msg);
-        loadFlights();
-    });
+    .then(msg => { alert(msg); loadFlights(); });
 }
 
 // Initial load
 loadFlights();
 </script>
+
 </body>
 </html>

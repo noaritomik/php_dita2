@@ -9,13 +9,11 @@ if (!isset($_GET['flight']) || empty(trim($_GET['flight']))) {
 
 $flight = strtoupper(trim($_GET['flight']));
 
-// Optional: validate format
 if (!preg_match('/^[A-Z]{2}\d{2,4}$/', $flight)) {
     echo json_encode(["error" => "Invalid flight number format"]);
     exit;
 }
 
-// Check if flight exists
 $sql = "SELECT * FROM flights WHERE flight_no = ? LIMIT 1";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "s", $flight);
@@ -33,7 +31,6 @@ if ($row = mysqli_fetch_assoc($result)) {
     exit;
 }
 
-// Flight doesn't exist → insert dummy flight
 $airlines = ["American Airlines", "Delta", "United", "Emirates", "Lufthansa"];
 $airports = ["JFK", "LAX", "ORD", "ATL", "DXB", "LHR"];
 $statuses = ["On Time", "Delayed", "Boarding", "Departed", "Arrived"];
@@ -45,7 +42,6 @@ do {
 } while ($arrival === $departure);
 $status = $statuses[array_rand($statuses)];
 
-// Insert new flight
 $insert_sql = "INSERT INTO flights (flight_no, airline, departure, arrival, status) VALUES (?, ?, ?, ?, ?)";
 $insert_stmt = mysqli_prepare($conn, $insert_sql);
 mysqli_stmt_bind_param($insert_stmt, "sssss", $flight, $airline, $departure, $arrival, $status);
@@ -58,3 +54,4 @@ echo json_encode([
     "arrival" => $arrival,
     "status" => $status
 ]);
+

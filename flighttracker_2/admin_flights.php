@@ -2,12 +2,10 @@
 include("config.php");
 header("Content-Type: application/json");
 
-// Check if flights table is empty
 $result = mysqli_query($conn, "SELECT COUNT(*) as cnt FROM flights");
 $row = mysqli_fetch_assoc($result);
 
 if ($row['cnt'] == 0) {
-    // Pre-populate 5 random flights
     $airlines = ["American Airlines", "Delta", "United", "Emirates", "Lufthansa"];
     $airports = ["JFK", "LAX", "ORD", "ATL", "DXB", "LHR"];
     $statuses = ["On Time", "Delayed", "Boarding", "Departed", "Arrived"];
@@ -27,7 +25,6 @@ if ($row['cnt'] == 0) {
     }
 }
 
-// Fetch all flights
 $result = mysqli_query($conn, "SELECT * FROM flights ORDER BY id DESC");
 $flights = [];
 while($row = mysqli_fetch_assoc($result)) {

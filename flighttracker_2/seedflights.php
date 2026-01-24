@@ -1,7 +1,6 @@
 <?php
 include("config.php");
 
-// Only seed if table is empty
 $result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM flights");
 $row = mysqli_fetch_assoc($result);
 
@@ -10,7 +9,7 @@ if($row['count'] == 0) {
     $airports = ["JFK", "LAX", "ORD", "ATL", "DXB", "LHR"];
     $statuses = ["On Time", "Delayed", "Boarding", "Departed", "Arrived"];
 
-    for($i=1; $i<=5; $i++) { // Create 5 random flights
+    for($i=1; $i<=5; $i++) {
         $flight_no = "AA" . rand(100,999);
         $airline = $airlines[array_rand($airlines)];
         $departure = $airports[array_rand($airports)];

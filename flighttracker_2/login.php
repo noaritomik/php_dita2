@@ -30,6 +30,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Login</h2>
+
+    <?php if ($error): ?>
+      <p class="auth-error"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+
+    <form method="POST">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <p>No account? <a href="register.php">Register</a></p>
+  </div>
+</div>
+
+</body>
+
+<!-- <body>
 <div class="search-card">
   <h2>Login</h2>
   <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
@@ -40,5 +62,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </form>
   <p>No account? <a href="register.php">Register</a></p>
 </div>
-</body>
+</body> -->
 </html>

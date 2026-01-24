@@ -39,13 +39,14 @@ header {
 .logo {
   font-size: 32px;
   font-weight: bold;
-  display: block;
-  margin: 0 auto;
 }
 
-header p { margin-top: 5px; opacity: 0.9; }
+header p {
+  margin-top: 5px;
+  opacity: 0.9;
+}
 
-header a.logout-btn {
+.logout-btn {
   display: inline-block;
   margin-top: 10px;
   padding: 6px 12px;
@@ -53,13 +54,14 @@ header a.logout-btn {
   background: #16325c;
   color: white;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-header a.logout-btn:hover { background: #0f1c35; }
+.logout-btn:hover {
+  background: #0f1c35;
+}
 
 /* ================= CARDS ================= */
-.search-card, .notify-card {
+.search-card {
   background: white;
   padding: 30px;
   margin-bottom: 30px;
@@ -67,25 +69,22 @@ header a.logout-btn:hover { background: #0f1c35; }
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* ================= SEARCH BOX ================= */
-.search-card .search-box,
-.notify-card .notify-box { display: flex; gap: 10px; margin-top: 15px; }
+/* ================= SEARCH ================= */
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
 
-.search-card .search-box input,
-.notify-card input {
+.search-box input {
   flex: 1;
-  padding: 12px 15px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
-  outline: none;
 }
 
-.search-card .search-box input:focus,
-.notify-card input:focus { border-color: #1c92d2; }
-
-.search-card .search-box button,
-.notify-card button {
+.search-box button {
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -95,38 +94,38 @@ header a.logout-btn:hover { background: #0f1c35; }
   cursor: pointer;
 }
 
-.search-card .search-box button:hover,
-.notify-card button:hover { background: #0076b3; }
+.search-box button:hover {
+  background: #0076b3;
+}
 
-/* ================= LOADING ================= */
-.loading { margin-top: 20px; color: #777; font-style: italic; }
-.hidden { display: none; }
-
-/* ================= FLIGHT RESULTS ================= */
-#result { margin-top: 25px; }
-
+/* ================= RESULTS ================= */
 .flight-card {
-  border-radius: 15px;
-  padding: 25px;
+  margin-top: 20px;
   background: #f9fafb;
-  animation: fadeIn 0.4s ease;
+  padding: 25px;
+  border-radius: 15px;
 }
 
 .flight-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
 }
 
-.label { font-size: 13px; color: #777; }
-.value { font-size: 18px; font-weight: 600; }
+.label {
+  font-size: 13px;
+  color: #777;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .status {
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 20px;
-  display: inline-block;
   color: white;
-  font-size: 14px;
 }
 
 .On\ Time { background: #2ecc71; }
@@ -135,53 +134,96 @@ header a.logout-btn:hover { background: #0f1c35; }
 .Departed { background: #3498db; }
 .Arrived { background: #8e44ad; }
 
-/* ================= MANAGE FLIGHTS TABLE ================= */
-.search-card table {
+/* ================= TABLE ================= */
+table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 15px;
-  table-layout: fixed;
 }
 
-.search-card table th,
-.search-card table td {
+th, td {
   padding: 8px;
   border: 1px solid #ddd;
   font-size: 14px;
-  word-wrap: break-word;
 }
 
-.search-card table th { background-color: #1c92d2; color: white; }
-
-.search-card table input,
-.search-card table select {
-  width: 100%;
-  padding: 4px 6px;
-  font-size: 14px;
-  box-sizing: border-box;
+th {
+  background: #1c92d2;
+  color: white;
 }
-
-.search-card table button {
-  padding: 6px 10px;
-  font-size: 13px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  margin-right: 4px;
-}
-
-.search-card table button:hover { opacity: 0.85; }
 
 /* ================= FOOTER ================= */
-footer { width: 100%; padding: 20px; background: #f1f1f1; color: #777; }
-.footer-content { max-width: 900px; margin: 0 auto; text-align: center; }
+footer {
+  width: 100%;
+  padding: 20px;
+  background: #f1f1f1;
+  color: #777;
+}
 
-/* ================= ANIMATION ================= */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ================= LOGIN / REGISTER ================= */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #1c92d2, #f2fcfe);
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #1c92d2;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background: #1c92d2;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.auth-card button:hover {
+  background: #0076b3;
+}
+
+.auth-card a {
+  color: #1c92d2;
+  text-decoration: none;
+}
+
+.auth-error {
+  color: red;
+  margin-bottom: 10px;
+}
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .search-box, .notify-box, .search-card form { flex-direction: column; }
-  .search-card table, .search-card table th, .search-card table td { font-size: 12px; }
-  .search-card table input, .search-card table select { font-size: 12px; }
+  .search-box {
+    flex-direction: column;
+  }
 }

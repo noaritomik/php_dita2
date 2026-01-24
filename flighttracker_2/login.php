@@ -34,9 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <h2>Login</h2>
   <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
   <form method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button>Login</button>
+    <div class="search-box">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button>Login</button>
   </form>
   <p>No account? <a href="register.php">Register</a></p>
 </div>

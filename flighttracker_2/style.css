@@ -1,4 +1,4 @@
-
+/* ================= GENERAL RESET ================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +6,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+/* ================= BODY & LAYOUT ================= */
 body {
   min-height: 100vh;
   display: flex;
@@ -21,6 +22,7 @@ main {
   padding: 20px;
 }
 
+/* ================= HEADER ================= */
 header {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
@@ -56,6 +58,7 @@ header a.logout-btn {
 
 header a.logout-btn:hover { background: #0f1c35; }
 
+/* ================= CARDS ================= */
 .search-card, .notify-card {
   background: white;
   padding: 30px;
@@ -64,6 +67,7 @@ header a.logout-btn:hover { background: #0f1c35; }
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
+/* ================= SEARCH BOX ================= */
 .search-card .search-box,
 .notify-card .notify-box { display: flex; gap: 10px; margin-top: 15px; }
 
@@ -94,9 +98,11 @@ header a.logout-btn:hover { background: #0f1c35; }
 .search-card .search-box button:hover,
 .notify-card button:hover { background: #0076b3; }
 
+/* ================= LOADING ================= */
 .loading { margin-top: 20px; color: #777; font-style: italic; }
 .hidden { display: none; }
 
+/* ================= FLIGHT RESULTS ================= */
 #result { margin-top: 25px; }
 
 .flight-card {
@@ -129,6 +135,7 @@ header a.logout-btn:hover { background: #0f1c35; }
 .Departed { background: #3498db; }
 .Arrived { background: #8e44ad; }
 
+/* ================= MANAGE FLIGHTS TABLE ================= */
 .search-card table {
   width: 100%;
   border-collapse: collapse;
@@ -165,11 +172,14 @@ header a.logout-btn:hover { background: #0f1c35; }
 
 .search-card table button:hover { opacity: 0.85; }
 
+/* ================= FOOTER ================= */
 footer { width: 100%; padding: 20px; background: #f1f1f1; color: #777; }
 .footer-content { max-width: 900px; margin: 0 auto; text-align: center; }
 
+/* ================= ANIMATION ================= */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .search-box, .notify-box, .search-card form { flex-direction: column; }
   .search-card table, .search-card table th, .search-card table td { font-size: 12px; }

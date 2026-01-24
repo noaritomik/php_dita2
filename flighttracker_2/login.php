@@ -1,13 +1,12 @@
 <?php
 include("config.php");
 
-$error = "";
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE email=?");
+    $query = "SELECT * FROM users WHERE email=?";
+    $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
@@ -23,29 +22,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login – SkyTrack</title>
+  <title>Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="auth-page">
-
+<body>
 <div class="search-card">
   <h2>Login</h2>
-
-  <?php if ($error): ?>
-    <p class="error"><?= htmlspecialchars($error) ?></p>
-  <?php endif; ?>
-
+  <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
   <form method="POST">
     <input type="email" name="email" placeholder="Email" required>
     <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
+    <button>Login</button>
   </form>
-
   <p>No account? <a href="register.php">Register</a></p>
 </div>
-
 </body>
 </html>

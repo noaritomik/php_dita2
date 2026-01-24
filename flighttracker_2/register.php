@@ -1,11 +1,6 @@
 <?php
 include("config.php");
 
-// Ensure session is started
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -21,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif ($password !== $confirm) {
         $error = "Passwords do not match!";
     } else {
-        // Check if email exists
         $stmt = mysqli_prepare($conn, "SELECT id FROM users WHERE email=?");
         mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
@@ -31,14 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $error = "Email already registered!";
         } else {
             $hashed = password_hash($password, PASSWORD_DEFAULT);
-            $insert = mysqli_prepare(
-                $conn,
-                "INSERT INTO users (name, email, password) VALUES (?, ?, ?)"
-            );
+            $insert = mysqli_prepare($conn, "INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
             mysqli_stmt_bind_param($insert, "sss", $name, $email, $hashed);
-
             if (mysqli_stmt_execute($insert)) {
-                // Auto-login
                 $_SESSION["user_id"] = mysqli_insert_id($conn);
                 $_SESSION["user_name"] = $name;
                 header("Location: dashboard.php");
@@ -50,36 +39,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register – SkyTrack</title>
+    <title>Register - SkyTrack</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="auth-page">
-
+<body>
 <div class="search-card">
     <h2>Create Account</h2>
-
-    <?php if ($error): ?>
-        <p class="error"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
-
+    <?php if ($error) echo "<p class='error'>$error</p>"; ?>
     <form method="POST">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="password" name="confirm" placeholder="Confirm Password" required>
-
         <button type="submit">Register</button>
     </form>
-
-    <p style="margin-top:15px;">
-        Already have an account?
-        <a href="login.php">Login here</a>
-    </p>
+    <p>Already have an account? <a href="login.php">Login here</a></p>
 </div>
-
 </body>
 </html>

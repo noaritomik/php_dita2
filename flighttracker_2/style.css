@@ -1,31 +1,38 @@
-/* RESET */
+/* ================= GENERAL RESET ================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* ===== DASHBOARD BODY ===== */
+/* ================= BODY & LAYOUT ================= */
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(to right, #eef2f3, #ffffff);
   color: #333;
 }
 
-/* ===== AUTH PAGES ===== */
-.auth-page {
-  background: linear-gradient(to right, #1c92d2, #f2fcfe);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
   padding: 30px;
+  width: 100%;
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -39,23 +46,22 @@ header p {
   opacity: 0.9;
 }
 
-header a {
-  color: #fff;
-  text-decoration: none;
+.logout-btn {
   display: inline-block;
   margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #16325c;
+  color: white;
+  text-decoration: none;
 }
 
-/* LAYOUT */
-main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+.logout-btn:hover {
+  background: #0f1c35;
 }
 
-/* CARDS */
-.search-card,
-.notify-card {
+/* ================= CARDS ================= */
+.search-card {
   background: white;
   padding: 30px;
   margin-bottom: 30px;
@@ -63,73 +69,47 @@ main {
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* AUTH CARD */
-.search-card {
-  width: 350px;
-  text-align: center;
+/* ================= SEARCH ================= */
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-/* INPUTS */
-input {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
+.search-box input {
+  flex: 1;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 15px;
+  font-size: 16px;
 }
 
-/* BUTTONS */
-button {
-  width: 100%;
-  padding: 12px;
+.search-box button {
+  padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  background: #1e3c72;
+  background: #1c92d2;
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-button:hover {
-  background: #16325c;
+.search-box button:hover {
+  background: #0076b3;
 }
 
-/* SEARCH / NOTIFY */
-.search-box,
-.notify-box {
-  display: flex;
-  gap: 10px;
-}
-
-.search-box input,
-.notify-box input {
-  flex: 1;
-}
-
-/* LOADING */
-.loading {
-  margin-top: 20px;
-  color: #777;
-  font-style: italic;
-}
-
-.hidden {
-  display: none;
-}
-
-/* FLIGHT CARD */
+/* ================= RESULTS ================= */
 .flight-card {
-  border-radius: 15px;
-  padding: 25px;
+  margin-top: 20px;
   background: #f9fafb;
+  padding: 25px;
+  border-radius: 15px;
 }
 
 .flight-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
 }
 
 .label {
@@ -139,40 +119,111 @@ button:hover {
 
 .value {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .status {
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 20px;
   color: white;
-  font-size: 14px;
 }
 
-.On-Time { background: #2ecc71; }
+.On\ Time { background: #2ecc71; }
 .Delayed { background: #e74c3c; }
 .Boarding { background: #f39c12; }
 .Departed { background: #3498db; }
 .Arrived { background: #8e44ad; }
 
-/* ERRORS */
-.error {
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
 }
 
-/* FOOTER */
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+th {
+  background: #1c92d2;
+  color: white;
+}
+
+/* ================= FOOTER ================= */
 footer {
-  text-align: center;
+  width: 100%;
   padding: 20px;
+  background: #f1f1f1;
   color: #777;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .search-box,
-  .notify-box {
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ================= LOGIN / REGISTER ================= */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #1c92d2, #f2fcfe);
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #1c92d2;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background: #1c92d2;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.auth-card button:hover {
+  background: #0076b3;
+}
+
+.auth-card a {
+  color: #1c92d2;
+  text-decoration: none;
+}
+
+.auth-error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .search-box {
     flex-direction: column;
   }
 }

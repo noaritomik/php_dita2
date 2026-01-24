@@ -16,7 +16,6 @@ if (!isset($_SESSION["user_id"])) {
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <div class="header-content">
         <div class="logo">✈ SkyTrack</div>
@@ -26,7 +25,6 @@ if (!isset($_SESSION["user_id"])) {
 </header>
 
 <main>
-    <!-- Track Flight Section -->
     <section class="search-card">
         <h2>Track Your Flight</h2>
         <div class="search-box">
@@ -37,11 +35,9 @@ if (!isset($_SESSION["user_id"])) {
         <div id="result"></div>
     </section>
 
-    <!-- Manage Flights Section -->
     <section class="search-card">
         <h2>Manage Flights</h2>
 
-        <!-- Add Flight Form -->
         <h3>Add New Flight</h3>
         <form id="addFlightForm">
             <input type="text" name="flight_no" placeholder="Flight Number" required>
@@ -60,13 +56,11 @@ if (!isset($_SESSION["user_id"])) {
 
         <hr>
 
-        <!-- Flights List -->
         <h3>All Flights</h3>
         <div id="flightList" style="overflow-x:auto;"></div>
     </section>
 </main>
 
-<!-- Footer -->
 <footer>
     <div class="footer-content">
         © 2026 SkyTrack • Flight Tracking System
@@ -75,9 +69,6 @@ if (!isset($_SESSION["user_id"])) {
 
 <script src="script.js"></script>
 <script>
-// ================================
-// Manage Flights JS
-// ================================
 
 function loadFlights() {
     fetch("admin_flights.php")
@@ -132,7 +123,6 @@ function loadFlights() {
     });
 }
 
-// Add Flight
 document.getElementById("addFlightForm").addEventListener("submit", function(e){
     e.preventDefault();
     const formData = new FormData(this);
@@ -141,7 +131,6 @@ document.getElementById("addFlightForm").addEventListener("submit", function(e){
     .then(msg => { alert(msg); loadFlights(); this.reset(); });
 });
 
-// Update Flight
 function updateFlight(id) {
     const flight_no = document.querySelector(`.editFlightNo[data-id='${id}']`).value;
     const airline = document.querySelector(`.editAirline[data-id='${id}']`).value;
@@ -162,7 +151,6 @@ function updateFlight(id) {
     .then(msg => { alert(msg); loadFlights(); });
 }
 
-// Delete Flight
 function deleteFlight(id) {
     if (!confirm("Are you sure you want to delete this flight?")) return;
     fetch("deleteflight_ajax.php?id="+id)
@@ -170,7 +158,6 @@ function deleteFlight(id) {
     .then(msg => { alert(msg); loadFlights(); });
 }
 
-// Initial load
 loadFlights();
 </script>
 

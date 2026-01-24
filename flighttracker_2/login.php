@@ -1,6 +1,8 @@
 <?php
 include("config.php");
 
+$error = "";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -24,25 +26,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Login – SkyTrack</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
 
-<div class="auth-wrapper">
-  <div class="auth-card">
-    <h2>Login</h2>
+<div class="search-card">
+  <h2>Login</h2>
 
-    <?php if (isset($error)) echo "<p class='auth-error'>$error</p>"; ?>
+  <?php if ($error): ?>
+    <p class="error"><?= htmlspecialchars($error) ?></p>
+  <?php endif; ?>
 
-    <form method="POST">
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button>Login</button>
-    </form>
+  <form method="POST">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
 
-    <p>No account? <a href="register.php">Register</a></p>
-  </div>
+  <p>No account? <a href="register.php">Register</a></p>
 </div>
 
 </body>

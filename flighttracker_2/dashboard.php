@@ -20,7 +20,10 @@ if (!isset($_SESSION["user_id"])) {
     <div class="header-content">
         <div class="logo">✈ SkyTrack</div>
         <p>Welcome, <?= htmlspecialchars($_SESSION["user_name"]) ?></p>
-        <a href="logout.php" class="logout-btn">Logout</a>
+        <div class="header-buttons">
+            <a href="Home.php" class="home-btn">Back to Home</a>
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </div>
     </div>
 </header>
 

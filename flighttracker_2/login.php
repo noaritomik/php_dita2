@@ -1,14 +1,12 @@
 <?php
 include("config.php");
-
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $query = "SELECT * FROM users WHERE email=?";
-    $stmt = mysqli_prepare($conn, $query);
+    $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE email=?");
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
@@ -24,14 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - SkyTrack</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Login - SkyTrack</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="auth-wrapper">
   <div class="auth-card">
     <h2>Login</h2>
@@ -41,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <form method="POST">
       <input type="email" name="email" placeholder="Email" required>
       <input type="password" name="password" placeholder="Password" required>
-      <button>Login</button>
+      <button type="submit">Login</button>
     </form>
 
     <p>No account? <a href="register.php">Register</a></p>
@@ -50,25 +48,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="auth-wrapper">
-<div class="auth-card">
-  <h2>Login</h2>
-  <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
-  <form method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button>Login</button>
-  </form>
-  <p>No account? <a href="register.php">Register</a></p>
-</div>
-</body>
-</html> -->

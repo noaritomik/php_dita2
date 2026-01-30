@@ -29,8 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-page">
-
-<div class="search-card" style="max-width:400px; margin:120px auto;">
+<div class="search-card">
     <h2>Login</h2>
 
     <?php if ($error) echo "<p class='auth-error'>$error</p>"; ?>

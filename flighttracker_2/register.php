@@ -33,8 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body class="register-page">
 
-
-<div class="search-card" style="max-width:400px; margin:100px auto;">
+<div class="search-card">
     <h2>Create Account</h2>
 
     <?php if ($error) echo "<p class='auth-error'>$error</p>"; ?>

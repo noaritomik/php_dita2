@@ -88,9 +88,6 @@ body.register-page .search-card {
   text-align: center;
   border: 2px solid #1c92d2; /* blue border */
   transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  top: 50%;
-  transform: translateY(50px);
 }
 
 body.login-page .search-card:hover,

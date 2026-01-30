@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Register - SkyTrack</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="register-page">
+
 
 <div class="search-card" style="max-width:400px; margin:100px auto;">
     <h2>Create Account</h2>

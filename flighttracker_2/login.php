@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Login - SkyTrack</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="login-page">
 
 <div class="search-card" style="max-width:400px; margin:120px auto;">
     <h2>Login</h2>

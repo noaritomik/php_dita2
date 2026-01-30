@@ -76,105 +76,6 @@ header p {
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* ================= LOGIN / REGISTER USING SEARCH-CARD ================= */
-/* Applies only when body has login-page or register-page class */
-body.login-page .search-card,
-body.register-page .search-card {
-  padding: 40px 30px;
-  margin: 0 auto; /* center horizontally */
-  border-radius: 15px;
-  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15);
-  max-width: 400px;
-  text-align: center;
-  border: 2px solid #1c92d2; /* blue border */
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  top: 50%;
-  transform: translateY(50px);
-}
-
-body.login-page .search-card:hover,
-body.register-page .search-card:hover {
-  transform: translateY(45px);
-  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
-}
-
-body.login-page .search-card h2,
-body.register-page .search-card h2 {
-  color: #1c92d2;
-  margin-bottom: 25px;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-body.login-page .search-card input,
-body.register-page .search-card input {
-  width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-
-body.login-page .search-card input:focus,
-body.register-page .search-card input:focus {
-  border-color: #1c92d2;
-  outline: none;
-  box-shadow: 0 0 8px rgba(28, 146, 210, 0.3);
-}
-
-body.login-page .search-card button,
-body.register-page .search-card button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 10px;
-  background: #1c92d2;
-  border: none;
-  color: white;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-body.login-page .search-card button:hover,
-body.register-page .search-card button:hover {
-  background: #0f5e8c;
-}
-
-body.login-page .search-card a,
-body.register-page .search-card a {
-  color: #1c92d2;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-body.login-page .search-card a:hover,
-body.register-page .search-card a:hover {
-  color: #0f5e8c;
-}
-
-body.login-page .auth-error,
-body.register-page .auth-error {
-  color: #e74c3c;
-  margin-bottom: 15px;
-  font-weight: 500;
-}
-
-/* Optional: full-screen background for login/register */
-body.login-page,
-body.register-page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #1e3c72, #2a5298); /* deep blue gradient */
-}
-
 /* ================= SEARCH ================= */
 .search-box {
   display: flex;
@@ -270,6 +171,62 @@ footer {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+}
+
+/* ================= LOGIN / REGISTER ================= */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #1c92d2, #f2fcfe);
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #1c92d2;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background: #1c92d2;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  background: #0076b3;
+}
+
+.auth-card a {
+  color: #1c92d2;
+  text-decoration: none;
+}
+
+.auth-error {
+  color: red;
+  margin-bottom: 10px;
 }
 
 /* ================= RESPONSIVE ================= */

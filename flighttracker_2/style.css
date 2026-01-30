@@ -1,4 +1,4 @@
-/* ================= GENERAL RESET ================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +6,6 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* ================= BODY & LAYOUT ================= */
 body {
   min-height: 100vh;
   display: flex;
@@ -15,7 +14,6 @@ body {
   color: #333;
 }
 
-/* ================= MAIN ================= */
 main {
   flex: 1;
   max-width: 900px;
@@ -23,7 +21,6 @@ main {
   padding: 20px;
 }
 
-/* ================= HEADER ================= */
 header {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
@@ -61,7 +58,6 @@ header p {
   background: #0f1c35;
 }
 
-/* ================= CARDS ================= */
 .search-card {
   background: white;
   padding: 30px;
@@ -70,29 +66,26 @@ header p {
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* ================= LOGIN / REGISTER USING SEARCH-CARD ================= */
-/* Applies only when body has login-page or register-page class */
 body.login-page .search-card,
 body.register-page .search-card {
   padding: 40px 30px;
-  margin: 0 auto; /* center horizontally */
+  margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15);
   max-width: 400px;
   text-align: center;
-  border: 2px solid #1c92d2; /* blue border */
+  border: 2px solid #3498db;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 body.login-page .search-card:hover,
 body.register-page .search-card:hover {
-  transform: translateY(45px);
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 body.login-page .search-card h2,
 body.register-page .search-card h2 {
-  color: #1c92d2;
+  color: #3498db;
   margin-bottom: 25px;
   font-size: 28px;
   font-weight: 600;
@@ -111,9 +104,9 @@ body.register-page .search-card input {
 
 body.login-page .search-card input:focus,
 body.register-page .search-card input:focus {
-  border-color: #1c92d2;
+  border-color: #3498db;
   outline: none;
-  box-shadow: 0 0 8px rgba(28, 146, 210, 0.3);
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
 }
 
 body.login-page .search-card button,
@@ -121,7 +114,7 @@ body.register-page .search-card button {
   width: 100%;
   padding: 14px;
   margin-top: 10px;
-  background: #1c92d2;
+  background: #3498db;
   border: none;
   color: white;
   border-radius: 10px;
@@ -133,12 +126,12 @@ body.register-page .search-card button {
 
 body.login-page .search-card button:hover,
 body.register-page .search-card button:hover {
-  background: #0f5e8c;
+  background: #2980b9;
 }
 
 body.login-page .search-card a,
 body.register-page .search-card a {
-  color: #1c92d2;
+  color: #3498db;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -146,7 +139,7 @@ body.register-page .search-card a {
 
 body.login-page .search-card a:hover,
 body.register-page .search-card a:hover {
-  color: #0f5e8c;
+  color: #2980b9;
 }
 
 body.login-page .auth-error,
@@ -156,17 +149,15 @@ body.register-page .auth-error {
   font-weight: 500;
 }
 
-/* Optional: full-screen background for login/register */
 body.login-page,
 body.register-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #1e3c72, #2a5298); /* deep blue gradient */
+  background: linear-gradient(to right, #1e3c72, #2a5298);
 }
 
-/* ================= SEARCH ================= */
 .search-box {
   display: flex;
   gap: 10px;
@@ -195,7 +186,6 @@ body.register-page {
   background: #0076b3;
 }
 
-/* ================= RESULTS ================= */
 .flight-card {
   margin-top: 20px;
   background: #f9fafb;
@@ -231,7 +221,6 @@ body.register-page {
 .Departed { background: #3498db; }
 .Arrived { background: #8e44ad; }
 
-/* ================= TABLE ================= */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -249,7 +238,6 @@ th {
   color: white;
 }
 
-/* ================= FOOTER ================= */
 footer {
   width: 100%;
   padding: 20px;
@@ -263,7 +251,61 @@ footer {
   text-align: center;
 }
 
-/* ================= RESPONSIVE ================= */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #eef2f3, #ffffff);
+  padding: 20px;
+}
+
+.home-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.home-image {
+  width: 300px;
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.home-content h1 {
+  font-size: 48px;
+  color: #1e3c72;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.home-content p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  background: #2980b9;
+}
+
 @media (max-width: 768px) {
   .search-box {
     flex-direction: column;

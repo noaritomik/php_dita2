@@ -26,6 +26,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Login - SkyTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="search-card" style="max-width:400px; margin:120px auto;">
+    <h2>Login</h2>
+
+    <?php if ($error) echo "<p class='auth-error'>$error</p>"; ?>
+
+    <form method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <p style="margin-top:10px;">
+        Don’t have an account?
+        <a href="register.php">Register</a>
+    </p>
+</div>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
   <title>Login</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -42,4 +71,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <p>No account? <a href="register.php">Register</a></p>
 </div>
 </body>
-</html>
+</html> -->

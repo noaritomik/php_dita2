@@ -47,24 +47,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="search-card" style="max-width:400px; margin:100px auto;">
+<div class="auth-wrapper">
+  <div class="auth-card">
     <h2>Create Account</h2>
 
     <?php if ($error) echo "<p class='auth-error'>$error</p>"; ?>
 
     <form method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="password" name="confirm" placeholder="Confirm Password" required>
-        <button type="submit">Register</button>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirm" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
     </form>
 
-    <p style="margin-top:10px;">
-        Already have an account?
-        <a href="login.php">Login here</a>
-    </p>
+    <p>Already have an account? <a href="login.php">Login here</a></p>
+  </div>
 </div>
 
 </body>

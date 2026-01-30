@@ -32,22 +32,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="search-card" style="max-width:400px; margin:120px auto;">
+<div class="auth-wrapper">
+  <div class="auth-card">
     <h2>Login</h2>
 
     <?php if ($error) echo "<p class='auth-error'>$error</p>"; ?>
 
     <form method="POST">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button>Login</button>
     </form>
 
-    <p style="margin-top:10px;">
-        Don’t have an account?
-        <a href="register.php">Register</a>
-    </p>
+    <p>No account? <a href="register.php">Register</a></p>
+  </div>
 </div>
 
 </body>

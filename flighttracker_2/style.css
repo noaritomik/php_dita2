@@ -177,7 +177,11 @@ body.register-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #1e3c72, #2a5298);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('airport.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .search-box {

@@ -15,12 +15,6 @@ body {
   color: #333;
 }
 
-/* IMPORTANT FIX:
-   Disable body flex ONLY on auth pages */
-body:has(.auth-wrapper) {
-  display: block;
-}
-
 /* ================= MAIN ================= */
 main {
   flex: 1;

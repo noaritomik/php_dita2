@@ -7,7 +7,7 @@ session_start();
     <title>Home - SkyTrack</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
 
 <div class="home-wrapper">
     <div class="home-hero">

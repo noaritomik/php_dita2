@@ -411,6 +411,21 @@ footer {
   box-shadow: 0 15px 40px rgba(52, 152, 219, 0.6);
 }
 
+.home-page .home-image,
+.home-page .feature-box,
+.home-page .home-button-large {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.home-page .home-image:hover,
+.home-page .feature-box:hover,
+.home-page .home-button-large:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 @media (max-width: 768px) {
   .search-box {
     flex-direction: column;

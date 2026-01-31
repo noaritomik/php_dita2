@@ -18,7 +18,7 @@ if (!isset($_SESSION["user_id"])) {
 
 <header>
     <div class="header-content">
-        <div class="logo">✈ SkyTrack</div>
+        <div class="logo">SkyTrack</div>
         <p>Welcome, <?= htmlspecialchars($_SESSION["user_name"]) ?></p>
         <div class="header-buttons">
             <a href="Home.php" class="home-btn">Back to Home</a>
